@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Calendar from "react-github-contribution-calendar";
-import { years, yearslength } from "./Grid.helper";
+import { years, yearslength } from "./utils/Grid.helper";
 
 const Grid = () => {
 
