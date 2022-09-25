@@ -1,53 +1,54 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import Calendar from "react-github-contribution-calendar";
-
-
-
-
+import { years, yearslength } from "./Grid.helper";
 
 const Grid = () => {
- 
-  const [data, setData] = useState([]);
-  const [values, setValues] = useState({});
 
-  let dateArr = [];
-  let count = {};
-  let until = "2020 ,06 30"; 
+  const [year, setYear] = useState("2020");
+  const [num, setNum] = useState(yearslength["year2020"]);
+  const [Values, setValues] = useState(years["year2020"]);
 
-  useEffect(() => {
-    loadData();
-    values1(data);
-  }, []);
+  const optionHendler = (e) => {
+    setYear(e.target.value);
+    setNum(yearslength["year" + e.target.value]);
+    setValues(years["year" + e.target.value]);
+  }; 
 
-  const loadData = async () => {
-    const response = await fetch(
-      `https://cloudwize-public.s3.us-east-2.amazonaws.com/interview/data-2FTFt8ZcCKeN_g6ffr-ib.json`
-    );
-    const data = await response.json();
-    setData(data);
-  };
-
-
-  const values1 = (data) => {
-    for (const key in data) {
-      dateArr.push(data[key]["commitDate"]);
-    }
-     dateArr.forEach((e) => {
-      count[e] = (count[e] || 0) + 1;
-    });
-    
-    setValues(count); 
-    
-  };
- 
-
-  console.log(values);
-   
+//////////////////////////PackageProps/////
+  let until = `${year} ,12 31`;
+  let panelColors = ['#040404','#073c25','#03622f','#17ce51','#17ce51'];
+  let monthNames= [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+  ];
+  let weekNames = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
+  let panelAttributes = { 'rx': 3, 'ry': 3 };
+//////////////////////////////////////////////
 
   return (
-    <div>
-      <Calendar values={values} until={until} />
-    </div>
+    <>
+      <div className="wrapper">
+        <div className="title">
+          <p>
+            {num} Contribluters in {year}
+          </p>
+        </div>
+        <div className="selections">
+        <button value="2020" onClick={optionHendler}>2020</button>
+        <button value="2021" onClick={optionHendler}>2021</button>
+        <button value="2022" onClick={optionHendler}>2022</button>
+        </div>
+        <div className="graph">
+          <Calendar 
+          values={Values} 
+          until={until}
+          panelColors={panelColors} 
+          weekNames={weekNames}
+          monthNames={monthNames}
+          panelAttributes={panelAttributes}/>
+        </div>
+      </div>
+    </>
   );
 };
 
