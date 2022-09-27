@@ -1,56 +1,66 @@
-body{
+body {
+  display: flex;
   background-color: black;
+  flex-direction: row;
 }
 
-.wrapper{
-display: flex;
-flex-direction: column;
- 
+
+.graph {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.104);
+  border-radius: 3%;
+  margin-left: 10%;
+  width: 730px;
 }
 
-.title{
-position: relative;
+
+.title {
+  position: relative;
   margin-top: 5%;
   margin-left: 10%;
   color: white;
   font-size: 20px;
   font-weight: 100;
-  
 }
 
-.selections{
- position: absolute;
- flex-direction: column;
- margin-right: 5%;
- margin-top: 9.5%;
- align-items: center;
 
- 
-}
-
-button{
+/* Buttons complex */
+.selections {
   display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  margin-left: 125%;
+  margin-top: -16%;
+}
+button {
   height: 39px;
   width: 100px;
-  margin-left: 900px;
   border-radius: 10% 10% 10% 10%;
   background-color: transparent;
   color: white;
-  justify-content: stretch;
-
+  text-align: start;
 }
 
 button:hover {
   background-color: rgba(2, 217, 255, 0.045);
 }
 
-button:focus{
-  background-color:rgb(3, 125, 255)
+button:focus {
+  background-color: rgb(3, 125, 255);
 }
+/* end*/
 
-.graph{
-  border: 1px solid rgba(255, 255, 255, 0.104);
-  border-radius: 3% ;
-  margin-left: 10%;
-  width: 730px;
+
+
+.legend {
+  text-align: center;
+  width: 25%;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 80%;
 }

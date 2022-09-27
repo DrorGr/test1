@@ -1,8 +1,6 @@
 
 import './App.css';
-
 import Grid from './cmp/Grid';
-
 
 
 function App() {
@@ -11,4 +9,6 @@ function App() {
   );
 }
 
-export default App;
+export default App
+
+

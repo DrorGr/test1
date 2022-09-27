@@ -1,6 +1,5 @@
-import { data } from "./demi_data";
-//  import { data1 } from './api_utill'
 
+/// Variables for formating the data 
 let months = {
   Jan: "01",
   Feb: "02",
@@ -17,10 +16,12 @@ let months = {
 };
 
  let year2020 = [], year2021 = [], year2022 = [];
-  
- let year2020length, year2021length, year2022length;
+///
 
-const change = (data) => {
+
+///Formating the recived data to the format used by the pakage///
+
+export const dataFormater = (data) => {
   for (let i = 0; i < data.length; i++) {
 
     let monthName = data[i]["commitDate"].slice(0, 3);
@@ -37,39 +38,22 @@ const change = (data) => {
     if (formatedDate.slice(0, 4) === "2022") {
       year2022.push(formatedDate);
     }
-
   }
-  year2020length = year2020.length;
-  year2021length = year2021.length;
-  year2022length = year2022.length;
 };
 
-
-change(data);
-
-
-
-year2020 = year2020.reduce((accumulator, value) => {
-  return { ...accumulator, [value]: (accumulator[value] || 0) + 1 };
-}, {});
-year2021 = year2021.reduce((accumulator, value) => {
-  return { ...accumulator, [value]: (accumulator[value] || 0) + 1 };
-}, {});
-year2022 = year2022.reduce((accumulator, value) => {
-  return { ...accumulator, [value]: (accumulator[value] || 0) + 1 };
-}, {});
+///Counting the dates duplicates  
+export const dupCouner = (array) => {
+// eslint-disable-next-line no-sequences
+return array.reduce((a, c) => (a[c] = ++a[c] || 1 , a), {});
+};
+///
 
 
+/// Exporting the final data in a easly queried  format 
 export let years = {
   "year2020": year2020,
   "year2021": year2021,
   "year2022": year2022,
-};
-
-export let yearslength = {
-  "year2020": year2020length,
-  "year2021": year2021length,
-  "year2022": year2022length,
 };
 
 
