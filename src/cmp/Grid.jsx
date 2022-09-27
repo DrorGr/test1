@@ -40,7 +40,7 @@ const Grid = () => {
   return ( 
     <>
       <div className="wrapper">
-        
+
         <div className="title">
           <p>
             {num} Contribluters in {year}
@@ -64,12 +64,12 @@ const Grid = () => {
         </div>
 
         <div className="legend">
-          <p>low</p>
-          <div style={{backgroundColor: "#0b0f14", width: "16px", height: "16px"}}></div>
-          <div style={{backgroundColor: "#073c25", width: "16px", height: "16px"}}></div>
-          <div style={{backgroundColor: "#03622f", width: "16px", height: "16px"}}></div>
-          <div style={{backgroundColor: "#17ce51", width: "16px", height: "16px"}}></div>
-          <p>high</p>
+          <p>Less</p>
+          <div style={{backgroundColor: "#0b0f14", width: "12px", height: "12px", borderRadius:"30%", border: "0.2px solid rgba(251, 251, 251, 0.2)"}}></div>
+          <div style={{backgroundColor: "#073c25", width: "12px", height: "12px", borderRadius:"30%"}}></div>
+          <div style={{backgroundColor: "#03622f", width: "12px", height: "12px", borderRadius:"30%"}}></div>
+          <div style={{backgroundColor: "#17ce51", width: "12px", height: "12px", borderRadius:"30%"}}></div>
+          <p>More</p>
         </div>
 
       </div>
