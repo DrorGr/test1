@@ -40,11 +40,13 @@ const Grid = () => {
   return ( 
     <>
       <div className="wrapper">
+        
         <div className="title">
           <p>
             {num} Contribluters in {year}
           </p>
         </div>
+
         <div className="graph">
           <Calendar 
           values={Values} 
@@ -54,11 +56,13 @@ const Grid = () => {
           monthNames={monthNames}
           panelAttributes={panelAttributes}/>
         </div>
+
         <div className="selections">
         <button value="2020" onClick={optionHendler}>2020</button>
         <button value="2021" onClick={optionHendler}>2021</button>
         <button value="2022" onClick={optionHendler}>2022</button>
         </div>
+
         <div className="legend">
           <p>low</p>
           <div style={{backgroundColor: "#0b0f14", width: "16px", height: "16px"}}></div>
@@ -67,6 +71,7 @@ const Grid = () => {
           <div style={{backgroundColor: "#17ce51", width: "16px", height: "16px"}}></div>
           <p>high</p>
         </div>
+
       </div>
 </>
   );
